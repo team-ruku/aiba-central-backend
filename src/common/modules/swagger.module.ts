@@ -9,6 +9,15 @@ export const SwaggerSetup = async (app: INestApplication) => {
     .setTitle(cluster.name)
     .setDescription(cluster.description)
     .setVersion(cluster.version)
+    .addBearerAuth(
+      {
+        type: "http",
+        scheme: "bearer",
+        bearerFormat: "JWT",
+      },
+      "bearerAuth",
+    )
+    .addSecurityRequirements("bearerAuth")
     .build();
 
   const document = SwaggerModule.createDocument(app, config);

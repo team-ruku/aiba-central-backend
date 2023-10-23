@@ -18,4 +18,4 @@ export const Mongooseoptions: MongooseModuleAsyncOptions = {
 };
 
 @Module({ imports: [MongooseModule.forRootAsync(Mongooseoptions)] })
-export class DatabaseModule {}
+export class CustomMongooseModule {}
